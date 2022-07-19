@@ -11,7 +11,7 @@
     <string name="bank_balance">Bank Balance</string>
     <string name="total_balance">Total Balance</string>
     <string name="food_allowance">Food Allowance</string>
-    <string name="format_currency" translatable="false">€%s</string>
+    <string name="format_currency" translatable="false">€%.2f</string>
     <string name="enter_money_amount_here">Enter money amount here</string>
     <string name="name">Name:</string>
     <string name="expense_amount">Expense amount:</string>
@@ -32,7 +32,7 @@
     <string name="healthcare">Healthcare</string>
     <string name="entertainment">Entertainment</string>
     <string name="spending_graph">Spending Graph</string>
-    <string name="total_spent">Total Spent:\n€%s</string>
+    <string name="total_spent">Total Spent:\n€%.2f</string>
     <string name="no_expenses">No expenses</string>
     <string name="spending_by_category">Spending By Category</string>
 </resources>

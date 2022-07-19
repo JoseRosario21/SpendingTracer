@@ -39,35 +39,35 @@ class HomeFragment : Fragment() {
         viewModel.accountLog.observe(viewLifecycleOwner) { accountLogFromDB ->
             val sum = viewModel.sum(accountLogFromDB)
 
-            binding.tvAccountBalance.text = String.format(Locale.getDefault(), getString(R.string.format_currency), sum.toString())
+            binding.tvAccountBalance.text = String.format(Locale.getDefault(), getString(R.string.format_currency), sum)
             if (sum < 0f)
                 binding.rlBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_red_round_corners)
             else {
                 binding.rlBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_round_corners)
             }
 
-            binding.tvBankBalanceAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.bankAmount.toString())
+            binding.tvBankBalanceAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.bankAmount)
             if (accountLogFromDB.bankAmount < 0f)
                 binding.llBankBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_red_round_corners)
             else {
                 binding.llBankBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_round_corners)
             }
 
-            binding.tvCashAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.cashAmount.toString())
+            binding.tvCashAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.cashAmount)
             if (accountLogFromDB.cashAmount < 0f)
                 binding.llCashBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_red_round_corners)
             else {
                 binding.llCashBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_round_corners)
             }
 
-            binding.tvFoodAllowanceAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.foodAllowanceAmount.toString())
+            binding.tvFoodAllowanceAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.foodAllowanceAmount)
             if (accountLogFromDB.foodAllowanceAmount < 0f)
                 binding.llFoodAllowanceBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_red_round_corners)
             else {
                 binding.llFoodAllowanceBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_round_corners)
             }
 
-            binding.tvSavingAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.savingAmount.toString())
+            binding.tvSavingAmount.text = String.format(Locale.getDefault(), getString(R.string.format_currency), accountLogFromDB.savingAmount)
             if (accountLogFromDB.savingAmount < 0f)
                 binding.llSavingBalance.background = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_background_red_round_corners)
             else {

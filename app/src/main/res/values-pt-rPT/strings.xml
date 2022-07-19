@@ -32,7 +32,7 @@
     <string name="healthcare">Saúde</string>
     <string name="entertainment">Entertenimento</string>
     <string name="spending_graph">Gráfico de despesas</string>
-    <string name="total_spent">Total Gasto:\n€%s</string>
+    <string name="total_spent">Total Gasto:\n€%.2f</string>
     <string name="no_expenses">Sem despesas</string>
     <string name="spending_by_category">Gastos por Categoria</string>
 </resources>

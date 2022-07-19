@@ -112,7 +112,7 @@ class SpendingFragment : Fragment(), OnPieChartItemSelected {
             binding.pcSpending.data = data
             data.setValueTextSize(15f)
             binding.pcSpending.setOnChartValueSelectedListener(this@SpendingFragment)
-            binding.pcSpending.centerText = String.format(getString(R.string.total_spent), data.yValueSum.toString())
+            binding.pcSpending.centerText = String.format(getString(R.string.total_spent), data.yValueSum)
         }
 
         with(binding.pcSpending) {
