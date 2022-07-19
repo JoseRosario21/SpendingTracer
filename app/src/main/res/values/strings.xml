@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Spending Tracer</string>
+    <string name="spending">Spending</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="home">Home</string>
+    <string name="search_feature">Enter category name</string>
+    <string name="overview">Overview</string>
+    <string name="cash">Cash</string>
+    <string name="saving">Saving</string>
+    <string name="bank_balance">Bank Balance</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="food_allowance">Food Allowance</string>
+    <string name="format_currency" translatable="false">€%s</string>
+    <string name="add_money">Add money</string>
+    <string name="enter_money_amount_here">Enter money amount here</string>
+    <string name="name">Name:</string>
+    <string name="expense_amount">Expense amount:</string>
+    <string name="expense_name">Expense name</string>
+    <string name="category">Category:</string>
+    <string name="enter_expense_category">Enter expense category here</string>
+    <string name="enter_expense_name">Enter expense name here</string>
+    <string name="payment_method">Payment Method:</string>
+    <string name="insert_expense">Insert Expense</string>
+    <string name="food">Food</string>
+    <string name="insurance">Insurance</string>
+    <string name="housing">Housing</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="error_empty_field">You can\'t have an empty field</string>
+    <string name="expense_added_successfully">Expense was added successfully</string>
+    <string name="transportation">Transportation</string>
+    <string name="utilities">Utilities</string>
+    <string name="healthcare">Healthcare</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="spending_graph">Spending Graph</string>
+    <string name="total_spent">Total Spent:\n$%s</string>
+    <string name="no_expenses">No expenses</string>
+    <string name="spending_by_category">Spending By Category</string>
+</resources>
