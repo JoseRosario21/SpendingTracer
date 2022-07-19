@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/add_expense"
-        android:title="@string/add_expense"
+        android:title="@string/add"
         android:icon="@drawable/ic_add_expense"/>
     <item
         android:id="@+id/spending"

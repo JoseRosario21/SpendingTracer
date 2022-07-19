@@ -49,7 +49,7 @@ class AddExpenseFragment : Fragment() {
         }
 
         val paymentMethods = arrayListOf(getString(R.string.bank_balance), getString(R.string.cash), getString(R.string.food_allowance), getString(R.string.saving))
-        val paymentMethodAdapter = ArrayAdapter(requireContext(), com.google.android.material.R.layout.support_simple_spinner_dropdown_item, paymentMethods)
+        val paymentMethodAdapter = ArrayAdapter(requireContext(), R.layout.item_spiner, paymentMethods)
         binding.spPaymentMethod.adapter = paymentMethodAdapter
         binding.spPaymentMethod.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {

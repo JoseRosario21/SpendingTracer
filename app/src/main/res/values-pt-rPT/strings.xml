@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Spending Tracer</string>
     <string name="spending">Gastos</string>
+    <string name="add">Adicionar</string>
     <string name="add_expense">Adicionar Despesa</string>
     <string name="home">Página Inicial</string>
     <string name="search_feature">Insira o nome da categoria</string>
@@ -10,8 +11,7 @@
     <string name="saving">Poupanças</string>
     <string name="bank_balance">Conta bancária</string>
     <string name="total_balance">Montante (Total)</string>
-    <string name="food_allowance">Subsídio de refeição</string>
-    <string name="add_money">Adicionar dinheiro</string>
+    <string name="food_allowance">Cartão de refeição</string>
     <string name="enter_money_amount_here">Insere o montante aqui</string>
     <string name="name">Nome:</string>
     <string name="expense_amount">Montante:</string>
@@ -32,7 +32,7 @@
     <string name="healthcare">Saúde</string>
     <string name="entertainment">Entertenimento</string>
     <string name="spending_graph">Gráfico de despesas</string>
-    <string name="total_spent">Total Gasto:\n$%s</string>
+    <string name="total_spent">Total Gasto:\n€%s</string>
     <string name="no_expenses">Sem despesas</string>
     <string name="spending_by_category">Gastos por Categoria</string>
 </resources>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Spending Tracer</string>
     <string name="spending">Spending</string>
+    <string name="add">Add</string>
     <string name="add_expense">Add Expense</string>
     <string name="home">Home</string>
     <string name="search_feature">Enter category name</string>
@@ -11,7 +12,6 @@
     <string name="total_balance">Total Balance</string>
     <string name="food_allowance">Food Allowance</string>
     <string name="format_currency" translatable="false">€%s</string>
-    <string name="add_money">Add money</string>
     <string name="enter_money_amount_here">Enter money amount here</string>
     <string name="name">Name:</string>
     <string name="expense_amount">Expense amount:</string>
@@ -32,7 +32,7 @@
     <string name="healthcare">Healthcare</string>
     <string name="entertainment">Entertainment</string>
     <string name="spending_graph">Spending Graph</string>
-    <string name="total_spent">Total Spent:\n$%s</string>
+    <string name="total_spent">Total Spent:\n€%s</string>
     <string name="no_expenses">No expenses</string>
     <string name="spending_by_category">Spending By Category</string>
 </resources>

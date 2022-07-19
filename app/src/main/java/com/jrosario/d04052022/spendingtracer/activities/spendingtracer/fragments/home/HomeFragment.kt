@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
         }
 
         val arrayOfOptions = arrayListOf(getString(R.string.bank_balance), getString(R.string.cash), getString(R.string.food_allowance), getString(R.string.saving))
-        val adapter = ArrayAdapter(requireContext(), com.google.android.material.R.layout.support_simple_spinner_dropdown_item, arrayOfOptions)
+        val adapter = ArrayAdapter(requireContext(), R.layout.item_spiner, arrayOfOptions)
         binding.spMoneyCategory.adapter = adapter
         binding.spMoneyCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
