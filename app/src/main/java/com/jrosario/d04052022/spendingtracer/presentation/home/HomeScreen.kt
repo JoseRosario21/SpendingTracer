@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.jrosario.d04052022.spendingtracer.domain.model.Spending
+import com.jrosario.d04052022.spendingtracer.presentation.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -17,12 +18,20 @@ fun HomeScreen(
     viewModel: HomeViewModel
 ) {
     val spendings by viewModel.spendings.collectAsState()
+    val savedStateHandle = navController.currentBackStackEntry?.savedStateHandle
+    val refreshTrigger = savedStateHandle?.getStateFlow("shouldRefresh", false)?.collectAsState()
 
+    LaunchedEffect(refreshTrigger?.value) {
+        if (refreshTrigger?.value == true) {
+            viewModel.loadSpendings()
+            savedStateHandle["shouldRefresh"] = false
+        }
+    }
     Scaffold(
         topBar = { TopAppBar(title = { Text("Spending Tracer") }) },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                navController.navigate("add_spending")
+                navController.navigate(Screen.AddSpending.route)
             }) {
                 Text("+")
             }
@@ -59,7 +68,7 @@ fun SpendingItem(spending: Spending) {
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = spending.category, style = MaterialTheme.typography.titleMedium)
+            Text(text = spending.category.name, style = MaterialTheme.typography.titleMedium)
             Text(text = "€${spending.amount}", style = MaterialTheme.typography.bodyLarge)
             Text(text = "Date: ${spending.date}", style = MaterialTheme.typography.bodySmall)
         }

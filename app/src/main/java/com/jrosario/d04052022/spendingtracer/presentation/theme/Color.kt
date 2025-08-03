@@ -2,14 +2,20 @@ package com.jrosario.d04052022.spendingtracer.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Base palette
-val Gold = Color(0xFFC9A94C)
-val GoldDark = Color(0xFFB28D33)
-val GoldLight = Color(0xFFE4C970)
+val BlueLight = Color(0xFF3498DB)
+val BlueDark = Color(0xFF5DADE2)
 
-val Black = Color(0xFF000000)
-val DarkGrey = Color(0xFF1A1A1A)
-val LightGrey = Color(0xFFEEEEEE)
-val White = Color(0xFFFFFFFF)
+val YellowLight = Color(0xFFF7E4B2)
+val YellowDark = Color(0xFFD0B67E)
 
-val ErrorRed = Color(0xFFB00020)
+val BackgroundLight = Color(0xFFFFFDF8)
+val SurfaceLight = Color(0xFFFFFFFF)
+
+val BackgroundDark = Color(0xFF121212)
+val SurfaceDark = Color(0xFF1E1E1E)
+
+val OnPrimaryLight = Color.White
+val OnPrimaryDark = Color.Black
+
+val OnBackgroundLight = Color(0xFF1A1A1A)
+val OnBackgroundDark = Color(0xFFEEEEEE)

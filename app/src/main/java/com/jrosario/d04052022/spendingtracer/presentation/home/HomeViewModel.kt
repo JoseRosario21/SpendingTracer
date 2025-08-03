@@ -18,9 +18,12 @@ class HomeViewModel @Inject constructor(
     val spendings: StateFlow<List<Spending>> = _spendings.asStateFlow()
 
     init {
+        loadSpendings()
+    }
+
+    fun loadSpendings() {
         viewModelScope.launch {
-            val spendings = repository.getAll()
-            _spendings.value = spendings
+            _spendings.value = repository.getAll()
         }
     }
 }

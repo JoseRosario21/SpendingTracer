@@ -1,15 +1,19 @@
 package com.jrosario.d04052022.spendingtracer.data.model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.jrosario.d04052022.spendingtracer.domain.model.Spending
+import com.jrosario.d04052022.spendingtracer.domain.model.SpendingCategory
 
-@Entity
+@Entity(tableName = "spendings")
 data class SpendingEntity(
-    @PrimaryKey(autoGenerate = true) var expenseId: Int = 0,
-    @ColumnInfo(name = "expense_name") val name: String,
-    @ColumnInfo(name = "expense_amount") val amount: Double,
-    @ColumnInfo(name = "expense_category") val category: Int,
-    @ColumnInfo(name = "expense_payment_method") val paymentMethod: Int,
-    @ColumnInfo(name = "expense_date") val date: String
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val name: String,
+    val amount: Double,
+    val category: Int,
+    val date: String
+)
+
+fun SpendingEntity.toDomain(): Spending = Spending(
+    id, name, amount, SpendingCategory.entries[category], date
 )
