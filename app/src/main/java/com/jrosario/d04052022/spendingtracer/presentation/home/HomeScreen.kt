@@ -1,0 +1,67 @@
+package com.jrosario.d04052022.spendingtracer.presentation.home
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.jrosario.d04052022.spendingtracer.domain.model.Spending
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HomeScreen(
+    navController: NavController,
+    viewModel: HomeViewModel
+) {
+    val spendings by viewModel.spendings.collectAsState()
+
+    Scaffold(
+        topBar = { TopAppBar(title = { Text("Spending Tracer") }) },
+        floatingActionButton = {
+            FloatingActionButton(onClick = {
+                navController.navigate("add_spending")
+            }) {
+                Text("+")
+            }
+        }
+    ) { padding ->
+        if (spendings.isEmpty()) {
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .padding(padding),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("No spendings yet.")
+            }
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+            ) {
+                items(spendings.size) { index ->
+                    SpendingItem(spendings[index])
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SpendingItem(spending: Spending) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(text = spending.category, style = MaterialTheme.typography.titleMedium)
+            Text(text = "€${spending.amount}", style = MaterialTheme.typography.bodyLarge)
+            Text(text = "Date: ${spending.date}", style = MaterialTheme.typography.bodySmall)
+        }
+    }
+}
