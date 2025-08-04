@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +18,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -99,19 +101,34 @@ fun AddSpendingScreen(
             Text(viewModel.error!!, color = MaterialTheme.colorScheme.error)
         }
 
-        Button(
-            onClick = {
-                viewModel.save {
-                    navController.previousBackStackEntry
-                        ?.savedStateHandle
-                        ?.set("shouldRefresh", true)
+        Spacer(modifier = Modifier.padding(16.dp))
 
+        Row {
+            OutlinedButton(
+                onClick = {
                     navController.popBackStack()
-                }
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Save")
+                },
+                modifier = Modifier.weight(1f)
+            ) {
+                Text("Cancel")
+            }
+
+            Spacer(modifier = Modifier.padding(8.dp))
+
+            Button(
+                onClick = {
+                    viewModel.save {
+                        navController.previousBackStackEntry
+                            ?.savedStateHandle
+                            ?.set("shouldRefresh", true)
+
+                        navController.popBackStack()
+                    }
+                },
+                modifier = Modifier.weight(1f)
+            ) {
+                Text("Save")
+            }
         }
     }
 }

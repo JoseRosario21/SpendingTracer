@@ -6,10 +6,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.jrosario.d04052022.spendingtracer.domain.model.Spending
 import com.jrosario.d04052022.spendingtracer.presentation.Screen
+import com.jrosario.d04052022.spendingtracer.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,7 +35,7 @@ fun HomeScreen(
             FloatingActionButton(onClick = {
                 navController.navigate(Screen.AddSpending.route)
             }) {
-                Text("+")
+                Icon(painter = painterResource(id = R.drawable.ic_add_expense), contentDescription = "Add expense")
             }
         }
     ) { padding ->

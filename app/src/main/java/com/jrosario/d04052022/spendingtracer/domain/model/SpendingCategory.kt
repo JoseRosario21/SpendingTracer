@@ -1,20 +1,18 @@
 package com.jrosario.d04052022.spendingtracer.domain.model
 
 enum class SpendingCategory {
-    Food,
-    Insurance,
-    Housing,
     Miscellaneous,
-    Transportation,
+    Food,
+    Housing,
     Utilities,
-    Healthcare,
     Entertainment,
-    Investments,
-    Education,
+    Travel,
     PersonalCare,
-    Gifts,
     Childcare,
     Pets,
-    Travel,
-    Work,
+    Education,
+    Healthcare,
+    Transportation,
+    Investments,
+    Insurance,
 }
