@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colors for categories -->
+    <color name="category_miscellaneous">#FFBB86FC</color>
+    <color name="category_food">#FF6200EE</color>
+    <color name="category_housing">#FF3700B3</color>
+    <color name="category_utilities">#FF03DAC5</color>
+    <color name="category_entertainment">#FF018786</color>
+    <color name="category_travel">#FF000000</color>
+    <color name="category_pets">#FF6200EE</color>
+    <color name="category_education">#FF3700B3</color>
+    <color name="category_healthcare">#FF03DAC5</color>
+
 </resources>

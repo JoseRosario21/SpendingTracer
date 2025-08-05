@@ -27,7 +27,9 @@
     <string name="miscellaneous">Miscellaneous</string>
     <string name="error_empty_field">You can\'t have an empty field</string>
     <string name="expense_added_successfully">Expense was added successfully</string>
-    <string name="transportation">Transportation</string>
+    <string name="travel">Travel</string>
+    <string name="pets">Pets</string>
+    <string name="education">Education</string>
     <string name="utilities">Utilities</string>
     <string name="healthcare">Healthcare</string>
     <string name="entertainment">Entertainment</string>

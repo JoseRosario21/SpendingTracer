@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.jrosario.d04052022.spendingtracer.domain.model.Spending
 import com.jrosario.d04052022.spendingtracer.domain.model.SpendingCategory
 
-@Entity(tableName = "spendings")
+@Entity(tableName = "spending")
 data class SpendingEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,

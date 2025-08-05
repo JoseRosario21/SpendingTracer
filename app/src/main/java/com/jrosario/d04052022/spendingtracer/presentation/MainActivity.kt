@@ -1,5 +1,6 @@
 package com.jrosario.d04052022.spendingtracer.presentation
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SpendingTracerTheme {
-                AppNavGraph()
+                AppNavGraph(this)
             }
         }
     }
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun AppNavGraph(
+    context: Context,
     navController: NavHostController = rememberNavController()
 ) {
     Surface(
@@ -63,7 +65,7 @@ fun AppNavGraph(
                     HomeScreen(navController, viewModel = hiltViewModel())
                 }
                 composable(BottomNavItem.Graph.route) {
-                    GraphScreen(viewModel = hiltViewModel())
+                    GraphScreen(context, viewModel = hiltViewModel())
                 }
                 composable(Screen.AddSpending.route) {
                     AddSpendingScreen(navController = navController, viewModel = hiltViewModel())
@@ -98,7 +100,7 @@ fun BottomNavigationBar(navController: NavHostController) {
 }
 
 sealed class BottomNavItem(val route: String, val label: String, @param:DrawableRes val icon: Int) {
-    data object Home : BottomNavItem("home", "Spendings", R.drawable.ic_home)
+    data object Home : BottomNavItem("home", "Home", R.drawable.ic_home)
     data object Graph : BottomNavItem("graph", "Statistics", R.drawable.ic_pie_chart)
 }
 

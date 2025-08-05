@@ -1,5 +1,6 @@
 package com.jrosario.d04052022.spendingtracer.presentation.graph
 
+import android.content.Context
 import android.graphics.Typeface
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -18,8 +19,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -32,22 +31,22 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.jrosario.d04052022.spendingtracer.domain.model.SpendingCategory
-import com.jrosario.d04052022.spendingtracer.presentation.home.HomeViewModel
+import com.jrosario.d04052022.spendingtracer.presentation.SpendingViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GraphScreen(viewModel: HomeViewModel) {
+fun GraphScreen(context: Context, viewModel: SpendingViewModel) {
     val data by viewModel.data.collectAsState()
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        PieChart(data)
+        PieChart(context, data)
     }
 }
 
 @Composable
-fun PieChart(data: Map<SpendingCategory, Double>) {
+fun PieChart(context: Context, data: Map<SpendingCategory, Double>) {
     // on below line we are creating a column
     // and specifying a modifier as max size.
     Column(modifier = Modifier.fillMaxSize()) {
@@ -61,7 +60,7 @@ fun PieChart(data: Map<SpendingCategory, Double>) {
             // on below line we are creating a simple text
             // and specifying a text as Web browser usage share
             Text(
-                text = "Spendings by category",
+                text = "Spending by category",
 
                 // on below line we are specifying style for our text
                 style = TextStyle.Default,
@@ -122,8 +121,8 @@ fun PieChart(data: Map<SpendingCategory, Double>) {
                             this.legend.horizontalAlignment =
                                 Legend.LegendHorizontalAlignment.CENTER
 
-                            // on below line we are specifying entry label color as white.
-                            //this.setEntryLabelColor(resources.getColor(R.color.white))
+                            // on below line we are specifying entry label color to the theme onBackground property.
+//                            this.setEntryLabelColor(MaterialTheme.colorScheme.onBackground.toArgb())
                         }
                     },
                         // on below line we are specifying modifier
@@ -133,7 +132,7 @@ fun PieChart(data: Map<SpendingCategory, Double>) {
                             .padding(5.dp), update = {
                             // on below line we are calling update pie chart
                             // method and passing pie chart and list of data.
-                            updatePieChartWithData(it, pieChartData)
+                            updatePieChartWithData(context, it, pieChartData)
                         })
                 }
             }
@@ -146,6 +145,7 @@ fun PieChart(data: Map<SpendingCategory, Double>) {
 fun updatePieChartWithData(
     // on below line we are creating a variable
     // for pie chart and data for our list of data.
+    context: Context,
     chart: PieChart,
     data: Map<SpendingCategory, Double>
 ) {
@@ -156,8 +156,9 @@ fun updatePieChartWithData(
     // on below line we are running for loop for
     // passing data from list into entries list.
     for (i in data.keys) {
-        val item = data[i]
-        entries.add(PieEntry(item?.toFloat() ?: 0.toFloat(), i.name))
+        val value = data[i]
+        val label = context.getString(i.label)
+        entries.add(PieEntry(value?.toFloat() ?: 0.toFloat(), label))
     }
 
     // on below line we are creating
@@ -166,16 +167,11 @@ fun updatePieChartWithData(
 
     // on below line we are specifying color
     // int the array list from colors.
-    val greenColor = Color(0xFF0F9D58)
-    val blueColor = Color(0xFF2196F3)
-    val yellowColor = Color(0xFFFFC107)
-    val redColor = Color(0xFFF44336)
-    ds.colors = arrayListOf(
-        greenColor.toArgb(),
-        blueColor.toArgb(),
-        redColor.toArgb(),
-        yellowColor.toArgb(),
-    )
+    val categoriesColors = mutableListOf<Int>()
+    data.forEach {
+        categoriesColors.add(it.key.color)
+    }
+    ds.colors = categoriesColors
     // on below line we are specifying position for value
     ds.yValuePosition = PieDataSet.ValuePosition.INSIDE_SLICE
 
@@ -185,9 +181,6 @@ fun updatePieChartWithData(
     // on below line we are specifying
     // slice space between two slices.
     ds.sliceSpace = 2f
-
-    // on below line we are specifying text color
-    // ds.valueTextColor = resources.getColor(R.color.white)
 
     // on below line we are specifying
     // text size for value.

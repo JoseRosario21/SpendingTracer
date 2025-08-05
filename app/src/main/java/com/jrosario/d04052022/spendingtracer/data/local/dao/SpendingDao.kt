@@ -9,7 +9,7 @@ import com.jrosario.d04052022.spendingtracer.data.model.SpendingEntity
 
 @Dao
 interface SpendingDao {
-    @Query("SELECT * FROM spendings ORDER BY date DESC")
+    @Query("SELECT * FROM spending ORDER BY date DESC")
     suspend fun getAll(): List<SpendingEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
